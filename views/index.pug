@@ -1,14 +1,18 @@
 extends layout
 
 block content
-  h2 Registrierung
-  form(action="registrierung")
-    div.w-100.p-3
-      input(type="text", name="E-mail", placeholder="E-mail")
-    div.w-100.p-3
-      input(type="password", name="Passwort", placeholder="Passwort")
-    div.w-100.p-3
-      input(type="text", name="Nickname", placeholder="Benutzername")
+  div(style="width=320px")
+    nav(class="navbar navbar-dark bg-dark" style="width=320px") 
+      div.p-0.m-0.text-light Spielplatz App
+    div.p-3
+      h2 Registrierung
+      form(action="registrierung")
+        div.w-100.p-3
+          input.form-control-lg(type="text", name="E-mail", placeholder="E-mail")
+        div.w-100.p-3
+          input.form-control-lg(type="password", name="Passwort", placeholder="Passwort")
+        div.w-100.p-3
+          input.form-control-lg(type="text", name="Nickname", placeholder="Benutzername")
 
-    div.w-100.p-3
-      input.btn-success.btn(type="submit", value="Regestrieren")
+        div.w-100.p-3
+          input.btn-lg.btn-success.btn(type="submit", value="Regestrieren")

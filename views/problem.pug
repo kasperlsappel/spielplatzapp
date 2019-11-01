@@ -1,0 +1,35 @@
+extends layout
+
+block content
+
+    div
+        img(src="/images/schaukel.png" width="700px")
+
+    div 
+        h2 Schaukel defekt 
+        p Unsere Schaukel ist leider kaputt. Und wenn möglich hätten wir gerne eine Korbschaukel.
+        div Von: Kasperl, am 7.12.2019
+
+    div 
+        h3 Kommentare
+        div 
+            h4  Stimmt!
+            p Ich hätte auch gerne eine Korbschaukel
+            div Von: SAPpel, am 7.12.2019
+            form
+                div.w-100.p-3
+                    input(type="text", name="Kommentar", placeholder="Kommentar schreiben")
+                    input.btn-success.btn(type="submit", value="Speichern")            
+        div
+            h4 Habe ich auch gesehen!
+            p Würde aber lieber die alte wieder haben
+            div Von: Dimpfelmoser, am 7.12.2019
+            form
+                div.w-100.p-3
+                    input(type="text", name="Kommentar", placeholder="Kommentar schreiben")
+                    input.btn-success.btn(type="submit", value="Speichern")        
+
+
+
+    div
+        input.btn-primary.btn(type="submit", value="Abstimmung starten")

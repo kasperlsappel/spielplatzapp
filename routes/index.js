@@ -16,7 +16,16 @@ router.get('/karte', function(req, res, next) {
 router.get('/danke', function(req, res, next) {
   res.render('danke', { title: 'Spielplatz App' });
 });
+router.get('/karteadmin', function(req, res, next) {
+  res.render('karteadmin', { title: 'Spielplatz App' });
+});
 
+router.get('/login', function(req, res, next) {
+  res.render('login', { title: 'Spielplatz App' });
+});
+router.get('/problem', function(req, res, next) {
+  res.render('problem', { title: 'Spielplatz App' });
+});
 router.get('/db', function(req, res, next) {
 
   const { Client } = require('pg');
