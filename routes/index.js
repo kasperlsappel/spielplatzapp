@@ -26,6 +26,11 @@ router.get('/login', function(req, res, next) {
 router.get('/problem', function(req, res, next) {
   res.render('problem', { title: 'Spielplatz App' });
 });
+
+router.get('/impressum', function(req, res, next) {
+  res.render('impressum', { title: 'Spielplatz App' });
+});
+
 router.get('/db', function(req, res, next) {
 
   const { Client } = require('pg');
