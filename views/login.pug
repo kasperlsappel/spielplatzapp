@@ -1,12 +1,12 @@
-extends layout
+extends layout-pc
 
 block content
-  h2 Login
-  form(action="karteadmin")
-    div.w-100.p-3
-      input(type="text", name="E-mail", placeholder="E-mail")
-    div.w-100.p-3
-      input(type="password", name="Passwort", placeholder="Passwort")
-
-    div.w-100.p-3
-      input.btn-success.btn(type="submit", value="Anmelden")
+    div.p-3
+        h2 Login
+        form(action="karteadmin")
+            div.w-100.pt-3
+                input.form-control-lg(type="text", name="E-mail", placeholder="E-mail")
+            div.w-100.pt-3
+                input.form-control-lg(type="password", name="Passwort", placeholder="Passwort")
+            div.w-100.pt-3
+                input.btn-success.btn.btn-lg(type="submit", value="Anmelden")

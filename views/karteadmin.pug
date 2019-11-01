@@ -1,16 +1,15 @@
-extends layout
+extends layout-pc
 
 block content
-    div.p-0.m-0(style="height:300px;width:500px")
-        div.w-100.h-100.d-inline-block(style="background-image: url('/images/karte2.png');")
-            a(onclick="showDiv();") fghjk
+    div.p-0.m-0
+        a(onclick="showDiv();")
+            img(src="/images/karte2b.png")
 
-    div#f2(style="visibility:hidden;width:500px") 
-        div
+    div.p-3#f2(style="visibility:hidden;width:1024px") 
+        div.p-3
             h2 Spielplatz: Am Quartier am Turm
-
-      
-        div 
+    
+        div.p-3 
             h3 Letze Meldungen
 
         div.w-100
@@ -21,12 +20,12 @@ block content
                         th.w-50 Status
 
                     tr
-                        td 
-                            a(href="problem") Schauckel defekt
-                        td   
-                            a(href="problem")   Neu
+                        td.alert.alert-danger 
+                            a.alert-danger(href="problem") Schauckel defekt
+                        td.alert.alert-danger  
+                            a.alert-danger(href="problem")   Neu
                     tr
-                        td Ruschte defekt
-                        td erledigt
+                        td.alert.alert-success Ruschte defekt
+                        td.alert.alert-success erledigt
 
-           
+        

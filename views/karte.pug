@@ -1,28 +1,29 @@
 extends layout
 
 block content
-    div.p-0.m-0(style="height:300px;width:500px")
-        div.w-100.h-100.d-inline-block(style="background-image: url('/images/karte2.png');")
-            a(onclick="showDiv();") fghjk
+    div.p-0.m-0(style="height:200px;width:100%")
+        a(onclick="showDiv();")
+            div.w-100.h-100.d-inline-block(style="background-image: url('/images/karte1a.png'); background-size: cover;")
+            
 
-    div#f2(style="visibility:hidden;width:500px") 
+    div#f2(style="visibility:hidden").p-3
         div
-            h2 Spielplatz: Am Quartier am Turm
-
+            h2 Quartier am Turm
         div
             form(action="danke")
-                div.w-100.p-3
-                    input(type="text", name="Problem", placeholder="Problem")
-                div.w-100.p-3
-                    textarea(name="Beschreibung", cols="30", rows="10" placeholder="Beschreibung")
-                div.w-100.p-3
-                    input(type="file", name="Bild", placeholder="Bild") 
-                div.w-25.p-3
-                    input.btn-success.btn(type="submit", value="Abschicken")               
+                div.w-100.pt-3
+                    input.form-control-lg(type="text", name="Problem", placeholder="Problem")
+                div.w-100.pt-3
+                    textarea.form-control-lg(name="Beschreibung", cols="20", rows="10" placeholder="Beschreibung")
+                div.w-100.pt-3
+                    input.form-control-file.form-control-file-lg(type="file", name="Bild", placeholder="Bild") 
+                div.w-100.pt-3
+                    input.btn-lg.btn-success.btn(type="submit", value="Abschicken")               
 
-        div 
-            h3 Letze Berarbeitungen
 
+        div.p-3
+        div.p-3
+            h3 Letze Meldungen
         div.w-100
             table.table
                 tbody
@@ -31,6 +32,6 @@ block content
                         th.w-50 Status
                     tr
                         td Ruschte defekt
-                        td erledigt
+                        td.alert.alert-success erledigt
 
            
