@@ -1,0 +1,36 @@
+extends layout
+
+block content
+    div.p-0.m-0(style="height:300px;width:500px")
+        div.w-100.h-100.d-inline-block(style="background-image: url('/images/karte2.png');")
+            a(onclick="showDiv();") fghjk
+
+    div#f2(style="visibility:hidden;width:500px") 
+        div
+            h2 Spielplatz: Am Quartier am Turm
+
+        div
+            form(action="danke")
+                div.w-100.p-3
+                    input(type="text", name="Problem", placeholder="Problem")
+                div.w-100.p-3
+                    textarea(name="Beschreibung", cols="30", rows="10" placeholder="Beschreibung")
+                div.w-100.p-3
+                    input(type="file", name="Bild", placeholder="Bild") 
+                div.w-25.p-3
+                    input.btn-success.btn(type="submit", value="Abschicken")               
+
+        div 
+            h3 Letze Berarbeitungen
+
+        div.w-100
+            table.table
+                tbody
+                    tr 
+                        th.w-50 Problem
+                        th.w-50 Status
+                    tr
+                        td Ruschte defekt
+                        td erledigt
+
+           

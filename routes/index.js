@@ -6,6 +6,16 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Spielplatz App' });
 });
 
+router.get('/registrierung', function(req, res, next) {
+  res.render('registrierung', { title: 'Spielplatz App' });
+});
+
+router.get('/karte', function(req, res, next) {
+  res.render('karte', { title: 'Spielplatz App' });
+});
+router.get('/danke', function(req, res, next) {
+  res.render('danke', { title: 'Spielplatz App' });
+});
 
 router.get('/db', function(req, res, next) {
 

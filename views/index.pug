@@ -1,5 +1,14 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  h2 Registrierung
+  form(action="registrierung")
+    div.w-100.p-3
+      input(type="text", name="E-mail", placeholder="E-mail")
+    div.w-100.p-3
+      input(type="password", name="Passwort", placeholder="Passwort")
+    div.w-100.p-3
+      input(type="text", name="Nickname", placeholder="Benutzername")
+
+    div.w-100.p-3
+      input.btn-success.btn(type="submit", value="Regestrieren")

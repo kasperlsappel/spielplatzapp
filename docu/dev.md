@@ -20,3 +20,4 @@ https://devcenter.heroku.com/articles/heroku-postgresql
 
 ### Entwicklung
 export DATABASE_URL="postgresql://postgres@localhost:5432/spielplatzapp"
+
