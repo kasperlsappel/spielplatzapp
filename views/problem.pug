@@ -34,6 +34,25 @@ block content
         div.pt-4.pl-4
             h3 Aktionen:
             div 
-                input.btn-primary.btn(type="submit", value="Abstimmung starten")
+                button.btn-primary.btn.btn-lg(type="button" data-toggle="modal" data-target="#basicModal") Abstimmung starten
                 span.pl-3
-                    input.btn-primary.btn(type="submit", value="Problem gelöst")
+                    input.btn-primary.btn.btn-lg(type="submit", value="Problem gelöst")
+
+    .modal.fade(id="basicModal" tabindex='-1', role='dialog', aria-labelledby='basicModal', aria-hidden='true')
+        .modal-dialog.bg-white
+            .modal-content
+            .modal-header
+                h4#myModalLabel.modal-title Umfrage
+                button.close(type='button', data-dismiss='modal', aria-label='Close')
+                span(aria-hidden='true') &times;
+            .modal-body
+                form
+                    div.p-3.w-100
+                        input.w-100.form-control-lg(type="text" placeholder="Option 1")
+                    div.p-3.w-100
+                        input.w-100.form-control-lg(type="text" placeholder="Option 2")
+                    div.p-3.w-100
+                        input.w-100.form-control-lg(type="text" placeholder="Option 3")
+            .modal-footer
+                button.btn.btn-default(type='button', data-dismiss='modal') Schließen
+                button.btn.btn-primary(type='button') Speichern
