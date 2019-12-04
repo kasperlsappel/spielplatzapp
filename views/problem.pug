@@ -5,13 +5,24 @@ block content
         img(src="/images/schaukel.png" width="700px")
     div.p-3
         div
-            h2 Schaukel kaputt 
+            h2 Schaukel kaputt
             p.lead Unsere Schaukel ist leider kaputt. Wenn möglich hätten wir lieber eine Korbschaukel.
             p.small Von: Kasperl, am 7.12.2019
 
         div.pt-4.pl-4
             h3 Kommentare:
-            div.pb-3.pl-5 
+            div.pb-3.pl-5.pt-2
+                h4 Schaukel kann nicht mehr repariert werden
+                p.lead Bitte einen Ersatz bestellen.
+                p.small Von: Regiebetrieb Gartenbau, am 7.12.2019
+                form
+                    div.w-100.p-0
+                        input.form-control-lg(type="text", name="Kommentar", placeholder="Kommentar schreiben")
+                        span.pl-3
+                            input.btn-success.btn.btn-lg(type="submit", value="Speichern")
+
+
+            div.pb-3.pl-5
                 h4 Stimmt!
                 p.lead Ich hätte auch gerne eine Korbschaukel
                 p.small Von: SAPpel, am 7.12.2019
@@ -19,8 +30,9 @@ block content
                     div.w-100.p-0
                         input.form-control-lg(type="text", name="Kommentar", placeholder="Kommentar schreiben")
                         span.pl-3
-                            input.btn-success.btn.btn-lg(type="submit", value="Speichern")            
-            div.pb-3.pl-5.pt-2 
+                            input.btn-success.btn.btn-lg(type="submit", value="Speichern")
+
+            div.pb-3.pl-5.pt-2
                 h4 Habe ich auch gesehen!
                 p.lead Würde aber lieber die Alte wieder haben
                 p.small Von: Dimpfelmoser, am 7.12.2019
@@ -28,12 +40,12 @@ block content
                     div.w-100.p-0
                         input.form-control-lg(type="text", name="Kommentar", placeholder="Kommentar schreiben")
                         span.pl-3
-                            input.btn-success.btn.btn-lg(type="submit", value="Speichern")            
+                            input.btn-success.btn.btn-lg(type="submit", value="Speichern")
 
 
         div.pt-4.pl-4
             h3 Aktionen:
-            div 
+            div
                 button.btn-primary.btn.btn-lg(type="button" data-toggle="modal" data-target="#basicModal") Abstimmung starten
                 span.pl-3
                     input.btn-primary.btn.btn-lg(type="submit", value="Problem gelöst")
