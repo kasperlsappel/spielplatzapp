@@ -4,26 +4,26 @@ block content
     div.p-0.m-0(style="height:200px;width:100%")
         a(onclick="showDiv();")
             div.w-100.h-100.d-inline-block(style="background-image: url('/images/karte1a.png'); background-size: cover;")
-    div.small.text-center.pl-3.pr-3 Bitte wähle einen Spielplatz auf der Karte aus.            
+    div.small.text-center.pl-3.pr-3 Please select a playground on the map.
 
     div#f2(style="visibility:hidden").p-3
         div
-            h2 Quartier am Turm
+            h2 Quarter by the Tower
         div
             form(action="danke" autocomplete="off")
                 div.w-100.pt-3
                     input.form-control-lg(type="text", name="Problem", placeholder="Problem")
                 div.w-100.pt-3
-                    textarea.form-control-lg(name="Beschreibung", cols="20", rows="10" placeholder="Beschreibung")
+                    textarea.form-control-lg(name="Description", cols="20", rows="10" placeholder="Description")
                 div.w-100.pt-3
-                    input.form-control-file.form-control-file-lg(type="file", name="Bild", placeholder="Bild") 
+                    input.form-control-file.form-control-file-lg(type="file", name="Image", placeholder="Image") 
                 div.w-100.pt-3
-                    input.btn-lg.btn-success.btn(type="submit", value="Abschicken")               
+                    input.btn-lg.btn-success.btn(type="submit", value="Send")               
 
 
         div.p-3
         div.p-3
-            h3 Letze Meldungen
+            h3 Latest news
         div.w-100
             table.table
                 tbody
@@ -31,7 +31,7 @@ block content
                         th.w-50 Problem
                         th.w-50 Status
                     tr
-                        td Ruschte defekt
-                        td.alert.alert-success erledigt
+                        td Slide defekt
+                        td.alert.alert-success Done
 
            
