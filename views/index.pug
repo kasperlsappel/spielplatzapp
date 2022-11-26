@@ -2,14 +2,36 @@ extends layout
 
 block content
     div.p-3
-      h2 Registration
-      form(action="registrierung")
+      h2 Planung
+      form(action="status")
         div.w-100.p-3
-          input.form-control-lg(type="text", name="E-mail", placeholder="E-mail")
+          input.form-control-lg(type="text", name="waschmaschinenzeit", placeholder="Waschmaschine")
         div.w-100.p-3
-          input.form-control-lg(type="password", name="Passwort", placeholder="Passwort")
+          input.form-control-lg(type="text", name="spülmaschinenzeit", placeholder="Spülmaschine")
         div.w-100.p-3
-          input.form-control-lg(type="text", name="User", placeholder="User")
+          input.form-control-lg(type="text", name="trocknerzeit", placeholder="Trockner")
+
+        .w-100.p-3
+          .form-group.row
+            .col-sm-10
+              .form-check
+                input#heizschwert.form-check-input(type="checkbox" name="heizschwert" checked)
+                label.form-check-label(for="heizschwert")
+                  | Heizschwert
+
 
         div.w-100.p-3
-          input.btn-lg.btn-success.btn(type="submit", value="Register")
+          input.btn-lg.btn-success.btn(type="submit", value="Los")
+
+    div.p-3
+      h2 Wolken      
+      table.table.table-striped
+        tr
+          th Stunde
+          th Bewölkung
+        
+        - var n = 0;
+        while n < 24
+          tr
+            td= n
+            td= wetter.cloudCover[n++]

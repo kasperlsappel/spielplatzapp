@@ -1,0 +1,31 @@
+extends layout
+
+block content
+    div.p-3
+        h2 Aktuelle Planung:
+    table.table
+        thead.thead-dark
+            tr
+                th(scope='col') Gerät
+                th(scope='col') Start
+                th(scope='col') Ende
+        tbody
+
+        each val, index in data
+          tr
+            td= val.name
+            td(id=val.port).startZeit= val.start
+            td.endZeit= val.ende
+
+    div.clockFrame
+        div.clock
+            div.outer-clock-face
+                div.marking.marking-one
+                div.marking.marking-two
+                div.marking.marking-three
+                div.marking.marking-four
+                div.inner-clock-face
+
+            div.hand.hour-hand
+            div.hand.second-hand
+            div.hand.min-hand
