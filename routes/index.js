@@ -39,7 +39,7 @@ async function getStatus(req, res, next){
     console.log(`waschmaschine ${req.query.waschmaschinenzeit}`)
     input.push({
       name : "Waschmaschine",
-      fertig : getZeit(req.query.waschmaschinenzeit),
+      fertig : getZeit(req.query.waschmaschinenzeit)-2,
       dauer : 2, 
       port : 2,
     });
@@ -49,7 +49,7 @@ async function getStatus(req, res, next){
     console.log(`Spülmaschine ${req.query.spülmaschinenzeit}`)
     input.push({
       name : "Spülmaschine",
-      fertig : getZeit(req.query.spülmaschinenzeit),
+      fertig : getZeit(req.query.spülmaschinenzeit)-2,
       dauer : 2, 
       port : 1
     });
@@ -59,7 +59,7 @@ async function getStatus(req, res, next){
     console.log(`Trockner ${req.query.trocknerzeit}`)
     input.push({
       name : "trockner",
-      fertig : getZeit(req.query.trocknerzeit),
+      fertig : getZeit(req.query.trocknerzeit)-2,
       dauer : 2, 
       port : 3
     });
@@ -67,9 +67,9 @@ async function getStatus(req, res, next){
 
   let heizschwert = {};
   if(req.query.heizschwert && req.query.heizschwert == "on"){
-    console.log(`heizschwert ${req.query.heizschwert}`)
+    console.log(`Heizschwert ${req.query.heizschwert}`)
     heizschwert = {
-      name : "heizschwert",
+      name : "Heizschwert",
       dauer : 1, 
       port : 4
     };
@@ -85,7 +85,7 @@ async function getStatus(req, res, next){
   let besteUhrzeit = 0;
   console.log(`before hours loop: ${wetter.cloudCover.length}, sonnenaufgang: ${sonnenaufgang}, sonnenuntergang : ${sonnenuntergang}`)
   let aktuellesGeraet = 0;
-  let belegt = [];
+  let belegt = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false];
   for (let j = 0; j<input.length; j++){
     besterWert = 200;  
     besteUhrzeit = 0;
@@ -100,19 +100,41 @@ async function getStatus(req, res, next){
         if(besterWert > hours[i] + hours[i+1]){
           besterWert = hours[i] + hours[i+1]
           besteUhrzeit = i
-          console.log(`BesteUhrzeit: ${besteUhrzeit} - ${j} - length: ${input.length}`);
+          console.log(`BesteUhrzeit: ${besteUhrzeit} - ${j} - length: ${input.length} Bewölkung ${hours[i]} Bewölkung+1 ${hours[i+1]}`);
           input[j].start = i;
           input[j].ende = i + input[j].dauer
         }
       }
     } 
-    belegt[besteUhrzeit]=true
-    belegt[besteUhrzeit + 1]=true
+    belegt[besteUhrzeit]=input[j];
+    belegt[besteUhrzeit + 1]=true;
   }
+  console.log(`Belegt vor Heizschwert: ${JSON.stringify(belegt)}`)
+
+  for (let j = 0; j<belegt.length; j++){
+    if(j > sonnenaufgang && j < sonnenuntergang){
+      if(!belegt[j] && hours[j]< 51){
+        console.log(`noch frei & <= 50 ${j} `);
+        let h = JSON.parse(JSON.stringify(heizschwert));
+        h.start = j;
+        h.ende = j + 1;  
+        belegt[j] = h;
+      }
+    }
+  }
+  console.log(`Belegt: ${JSON.stringify(belegt)}`)
+
+  let startTabelle = [];
+  for (let j = 0; j<belegt.length; j++){
+    if(typeof belegt[j] === "object"){
+      startTabelle.push(belegt[j]);
+    }
+  }
+  console.log(`startTabelle: ${JSON.stringify(startTabelle)}`)
 
   console.log(`Belegt: ${JSON.stringify(belegt)}`)
   console.log(besteUhrzeit);
-  res.render('status', { title: 'Sonne', wetter : wetter, data: input, sunset: wetter.sunset, sunrise: wetter.sunrise, besteUhrzeit : besteUhrzeit});
+  res.render('status', { title: 'Sonne', wetter : wetter, data: startTabelle, sunset: wetter.sunset, sunrise: wetter.sunrise, besteUhrzeit : besteUhrzeit});
 }
 
 router.get('/status', function(req, res, next) {
